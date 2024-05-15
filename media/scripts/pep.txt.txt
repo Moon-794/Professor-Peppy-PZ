@@ -1,0 +1,66 @@
+module ProfPep
+{
+    imports
+    {
+	Base
+    }
+
+    item ProfessorPeppy
+    {
+        DisplayName = Professor Peppy,
+	DisplayCategory = Food,
+	Type = Food,
+	Weight = 0.7,
+	Icon = ProfessorPeppy,
+	FoodType = SoftDrink,
+	CantBeFrozen = TRUE,
+	EatType = bottle,
+	Packaged = TRUE,
+	ReplaceOnUse = EmptyPeppy,
+	HungerChange = -10,
+	ThirstChange = -100,
+	UnhappyChange = -25,
+	Calories = 450,
+	Carbohydrates = 122,
+	Lipids = 0,
+	Proteins = 0,
+	CustomContextMenu = Drink,
+	CustomEatSound = DrinkingFromBottlePlastic,
+	StaticModel = PopBottle,
+	WorldStaticModel = Base.PopBottleWorld,
+    }
+
+    item EmptyPeppy
+    {
+        DisplayName = Empty bottle of Peppy,
+        Weight = 0.1,
+	CanStoreWater = TRUE,
+	Type = Normal,
+	ReplaceOnUseOn = WaterSource-WaterPeppy,
+	Icon = ProfessorPeppyEmpty,
+	WorldStaticModel = Base.EmptyPopBottle,
+	ReplaceTypes = WaterSource WaterPeppy,
+    }
+
+    item WaterPeppy
+    {
+	DisplayName = Water Bottle,
+	DisplayCategory = Water,
+	Type = Drainable,
+	Weight = 0.7,
+	Icon = ProfessorPeppyWater,
+	CanStoreWater = TRUE,
+	FillFromDispensorSound = Base.GetWaterFromDispenserPlasticMedium,
+	FillFromTapSound = Base.GetWaterFromTapPlasticMedium,
+	IsWaterSource = TRUE,
+	ReplaceOnDeplete = EmptyPeppy,
+	ReplaceOnUseOn = WaterSource-WaterPeppy,
+	UseDelta = 0.1,
+	UseWhileEquipped = FALSE,
+	CustomContextMenu = Drink,
+	CustomEatSound = Base.DrinkingFromBottlePlastic,
+	StaticModel = Base.PopBottle,
+	WorldStaticModel = Base.EmptyPopBottle,
+	Tooltip = Tooltip_item_OnlyPurifyMicrowave,
+    }
+}
